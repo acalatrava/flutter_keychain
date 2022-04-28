@@ -81,6 +81,7 @@ static NSString *const InvalidParameters = @"Invalid parameter's type";
 - (void)put:(NSString *)value forKey:(NSString *)key {
     NSMutableDictionary *search = [self.query mutableCopy];
     search[(__bridge id)kSecAttrAccount] = key;
+    search[(__bridge id)kSecAttrAccessible] = (__bridge id)kSecAttrAccessibleAfterFirstUnlock;
     search[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitOne;
     
     OSStatus status;
